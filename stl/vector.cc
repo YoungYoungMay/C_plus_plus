@@ -1,4 +1,4 @@
-//迭代器实现的Vector
+//STL中vector容器的相关操作
 #pragma once
 #include <iostream>
 #include <string>
@@ -187,6 +187,7 @@ void test_vector3()
     while(it != v.end())
     {
         if(*it %2 == 0)
+        //vector的earse和insert会引起迭代器失效的问题-》逻辑错误
             it = v.erase(it);
         else
             ++it;

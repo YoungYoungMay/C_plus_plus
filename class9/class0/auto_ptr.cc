@@ -32,6 +32,7 @@ class AutoPtr
 
         //管理权转移-》ap2(ap1)
         //保证在任意时刻一块空间只有一个指针指向,否则可能出现同一空间释放两次的情况
+        //要保证传入的参数不具有常属性(临时变量就具有常属性)-》AutoPtr<int> b(AutoPtr<int> (new int))就会出错
         AutoPtr(AutoPtr<T>& ap)
             :_ptr(ap._ptr)
         {
